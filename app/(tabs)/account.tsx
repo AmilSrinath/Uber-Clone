@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import {useFonts} from "expo-font";
 import AccountOption from "@/components/account/AccountOption";
+import { Link } from 'expo-router';
 
 export default function Account() {
 		const [loaded] = useFonts({
@@ -12,31 +13,33 @@ export default function Account() {
 				<ScrollView style={styles.container}>
 						{/* Header */}
 						<View style={styles.header}>
-								<Text style={styles.name}>amil srinath</Text>
-								<Text style={styles.rating}>⭐ 5.0</Text>
-						</View>
-
-						{/* Profile Picture */}
-						<View style={styles.profileContainer}>
-								<View style={styles.profileIcon} />
+								<View>
+										<Text style={styles.name}>amil srinath</Text>
+										<Text style={styles.rating}>⭐ 5.0</Text>
+								</View>
+								<View style={styles.profileIcon}>
+										<Image style={styles.profileImg} source={{ uri: 'https://e7.pngegg.com/pngimages/81/570/png-clipart-profile-logo-computer-icons-user-user-blue-heroes-thumbnail.png' }} />
+								</View>
 						</View>
 
 						{/* Menu Buttons */}
 						<View style={styles.menu}>
 								<TouchableOpacity style={styles.menuButton}>
-										<Image style={styles.ButtonsImage} source={require('../../assets/images/react-logo.png')} />
+										<Image style={styles.ButtonsImage} source={{ uri: 'https://w7.pngwing.com/pngs/675/111/png-transparent-computer-icons-icon-design-help-text-number-help.png' }} />
 										<Text style={styles.menuText}>Help</Text>
 								</TouchableOpacity>
 
 								<TouchableOpacity style={styles.menuButton}>
-										<Image style={styles.ButtonsImage} source={require('../../assets/images/react-logo.png')} />
+										<Image style={styles.ButtonsImage} source={{ uri: 'https://images.freeimages.com/fic/images/icons/2770/ios_7_icons/512/wallet.png' }} />
 										<Text style={styles.menuText}>Payment</Text>
 								</TouchableOpacity>
 
-								<TouchableOpacity style={styles.menuButton}>
-										<Image style={styles.ButtonsImage} source={require('../../assets/images/react-logo.png')} />
-										<Text style={styles.menuText}>Activity</Text>
-								</TouchableOpacity>
+								<Link href="/activity" asChild>
+										<TouchableOpacity style={styles.menuButton}>
+												<Image style={styles.ButtonsImage} source={{ uri: 'https://icons.veryicon.com/png/o/education-technology/passenger-flow-analysis-icon-library/activity-assessment.png' }} />
+												<Text style={styles.menuText}>Activity</Text>
+										</TouchableOpacity>
+								</Link>
 						</View>
 
 						{/* Promos Section */}
@@ -48,7 +51,7 @@ export default function Account() {
 														We'll automatically apply the one that saves you the most.
 												</Text>
 										</View>
-										<Image style={styles.ButtonsImage} source={{ uri: 'https://dkl8of78aprwd.cloudfront.net/uber_one_landing%403x.png' }}/>
+										<Image style={styles.LargeButtonsImage} source={{ uri: 'https://dkl8of78aprwd.cloudfront.net/uber_one_landing%403x.png' }}/>
 								</View>
 						</TouchableOpacity>
 
@@ -61,7 +64,7 @@ export default function Account() {
 														Learn ways to make rides safer.
 												</Text>
 										</View>
-										<Image style={styles.ButtonsImage} source={{ uri: 'https://e7.pngegg.com/pngimages/605/905/png-clipart-free-pic-web-design-label-thumbnail.png' }}/>
+										<Image style={styles.LargeButtonsImage} source={{ uri: 'https://e7.pngegg.com/pngimages/605/905/png-clipart-free-pic-web-design-label-thumbnail.png' }}/>
 								</View>
 						</TouchableOpacity>
 
@@ -74,7 +77,7 @@ export default function Account() {
 														Take an interactive tour of your privacy settings.
 												</Text>
 										</View>
-										<Image style={styles.ButtonsImage} source={{ uri: 'https://png.pngtree.com/png-clipart/20220719/original/pngtree-report-vector-png-image_8368027.png' }}/>
+										<Image style={styles.LargeButtonsImage} source={{ uri: 'https://png.pngtree.com/png-clipart/20220719/original/pngtree-report-vector-png-image_8368027.png' }}/>
 								</View>
 						</TouchableOpacity>
 
@@ -148,12 +151,15 @@ const styles = StyleSheet.create({
 				paddingVertical: 20,
 		},
 		name: {
+				marginLeft: 10,
+				marginTop: 20,
 				fontSize: 28,
 				fontWeight: 'bold',
 		},
 		rating: {
 				fontSize: 18,
 				color: '#888',
+
 		},
 		profileContainer: {
 				justifyContent: 'center',
@@ -163,8 +169,9 @@ const styles = StyleSheet.create({
 		profileIcon: {
 				width: 60,
 				height: 60,
+				margin: 10,
+				marginTop: 50,
 				borderRadius: 30,
-				backgroundColor: '#ddd',
 		},
 		menu: {
 				flexDirection: 'row',
@@ -195,12 +202,10 @@ const styles = StyleSheet.create({
 		},
 		sectionTitle: {
 				fontSize: 16,
-				fontFamily: 'Poppins_Medium'
 		},
 		sectionSubtitle: {
 				fontSize: 12,
 				color: '#555',
-				fontFamily: 'Poppins_Medium',
 		},
 		image: {
 				width: 80,
@@ -216,10 +221,20 @@ const styles = StyleSheet.create({
 				paddingRight: 10,
 		},
 		ButtonsImage: {
-				width: 45,
-				height: 45,
+				width: 30,
+				height: 30,
 		},
 		listContainer: {
 				marginTop: 20,
+		},
+		LargeButtonsImage: {
+				width: 50,
+				height: 50,
+		},
+		profileImg: {
+				width: 60,
+				height: 60,
+				borderRadius: 30,
+				alignSelf: 'center',
 		},
 });
