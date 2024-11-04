@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Modal, View, Text, TouchableOpacity, StyleSheet, TextInput, ScrollView, Image, Button} from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
-import {useNavigation} from "expo-router";
+import {useNavigation, useRouter} from "expo-router";
 
 export default function HomeScreen() {
 		const [modalVisible, setModalVisible] = useState(false); // To control modal visibility
@@ -31,9 +31,11 @@ export default function HomeScreen() {
 				{ id: 2, name: 'Request Premier', description: "Ride with top-rated drivers", image: 'https://cdn.dribbble.com/users/2593544/screenshots/16026900/media/50074c9c6d371db9c4e2891d308b52a2.png' },
 		];
 
+		const router = useRouter();
+
 		const handleNext = () => {
 				setModalVisible(false);
-				navigation.navigate('PlanYourTrip');
+				router.navigate('/(map)');
 		};
 
 		return (
@@ -90,7 +92,7 @@ export default function HomeScreen() {
 						</View>
 
 						<View style={styles.menu}>
-								<TouchableOpacity style={styles.menuButton_2}>
+								<TouchableOpacity style={styles.menuButton_2} onPress={handleNext}>
 										<Image style={styles.ButtonsImage} source={{ uri: 'https://img.lovepik.com/element/40023/7161.png_300.png' }}/>
 										<Text style={styles.menuText}>Intercity</Text>
 								</TouchableOpacity>
