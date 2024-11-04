@@ -108,26 +108,13 @@ const Map = () => {
 						<View style={styles.searchContainer}>
 								<AntDesign name="search1" size={20} color='#000' />
 								<TextInput
-										placeholder="Enter start point?"
+										placeholder="Enter end point?"
 										style={styles.endInput}
 										value={endPoint}
 										onChangeText={setEndPoint}
 										onSubmitEditing={handleSearch}
 								/>
 								<TouchableOpacity onPress={handleSearch}>
-										<AntDesign name="arrowright" size={20} color='#000' />
-								</TouchableOpacity>
-						</View>
-
-
-						<View style={styles.searchEndContainer}>
-								<AntDesign name="search1" size={20} color='#000' />
-								<TextInput
-										placeholder="Enter end point?"
-										style={styles.endInput}
-										value={endPoint}
-								/>
-								<TouchableOpacity>
 										<AntDesign name="arrowright" size={20} color='#000' />
 								</TouchableOpacity>
 						</View>
@@ -202,20 +189,6 @@ const styles = StyleSheet.create({
 				fontSize: 18,
 				fontWeight: 'bold',
 		},
-		searchEndContainer: {
-				flexDirection: 'row',
-				alignItems: 'center',
-				backgroundColor: '#fff',
-				padding: 10,
-				borderRadius: 10,
-				margin: 10,
-				position: 'absolute',
-				top: 70,
-				left: 10,
-				right: 10,
-				zIndex: 1,
-		}
-
 });
 
 export default Map;
