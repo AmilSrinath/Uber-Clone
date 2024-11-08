@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {StyleSheet, TextInput, TouchableOpacity, View, Text, Modal, Image, ActivityIndicator} from 'react-native';
-import MapView, { Marker, Polyline } from 'react-native-maps';
+import MapView, {Marker, Polyline, PROVIDER_GOOGLE} from 'react-native-maps';
 import * as Location from 'expo-location';
 import { AntDesign } from "@expo/vector-icons";
 import {useRouter} from "expo-router";
@@ -214,6 +214,7 @@ const Map = () => {
 										style={styles.map}
 										region={region}
 										showsUserLocation={false} // Disable default user location marker
+										provider={PROVIDER_GOOGLE}
 								>
 										{region && (
 												<Marker
@@ -367,14 +368,14 @@ const styles = StyleSheet.create({
 				alignItems: 'center',
 		},
 		humanIcon: {
-				width: 25, // Adjust size as needed
-				height: 25, // Adjust size as needed
-				resizeMode: 'contain', // Ensure the icon is properly scaled
+				width: 25,
+				height: 25,
+				resizeMode: 'contain',
 		},
 		destinationIcon: {
-				width: 25, // Adjust size as needed
-				height: 25, // Adjust size as needed
-				resizeMode: 'contain', // Ensure the icon is properly scaled
+				width: 25,
+				height: 25,
+				resizeMode: 'contain',
 				top: -11,
 				right: 3
 		},

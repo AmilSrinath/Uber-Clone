@@ -44,14 +44,7 @@ export default function Index() {
 		};
 
 		const signUp = async () => {
-				try {
-						const response = await createUserWithEmailAndPassword(auth, email, password);
-						console.log(response);
-						alert("Account created successfully");
-				}catch (error) {
-						console.log(error);
-						alert(error)
-				}
+				router.replace('/(signup)');
 		}
 
 		return (
