@@ -1,13 +1,19 @@
 import React from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import {ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Button} from 'react-native';
 import {useFonts} from "expo-font";
 import AccountOption from "@/components/account/AccountOption";
-import { Link } from 'expo-router';
+import {Link, useRouter} from 'expo-router';
 
 export default function Account() {
 		const [loaded] = useFonts({
 				Poppins_Medium: require('../../assets/fonts/Poppins-Medium.ttf'),
 		});
+
+		const router = useRouter();
+
+		const handleNext = () => {
+				router.navigate('/(login)');
+		};
 
 		return (
 				<ScrollView style={styles.container}>
@@ -92,6 +98,10 @@ export default function Account() {
 										title='Ride'
 								/>
 								<AccountOption
+										uri='https://cdn-icons-png.flaticon.com/128/2099/2099058.png'
+										title='Settings'
+								/>
+								<AccountOption
 										uri='https://cdn-icons-png.flaticon.com/128/2907/2907972.png'
 										title='Promotions'
 								/>
@@ -133,6 +143,8 @@ export default function Account() {
 										uri='https://cdn-icons-png.flaticon.com/128/3503/3503827.png'
 										title='About'
 								/>
+
+								<Button title={"Sign out"} onPress={handleNext}/>
 						</View>
 				</ScrollView>
 		);

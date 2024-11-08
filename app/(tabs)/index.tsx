@@ -8,10 +8,6 @@ export default function HomeScreen() {
 		const [selectedTime, setSelectedTime] = useState('Now');  // To store selected time option
 		const navigation = useNavigation();
 
-		const handleSelection = (option: React.SetStateAction<string>) => {
-				setSelectedTime(option);
-				setModalVisible(false);  // Close modal after selecting
-		};
 
 		const rideItems = [
 				{ id: 1, name: 'Book Premier', description: "Extra comfort for special days", image: 'https://static1.makeuseofimages.com/wordpress/wp-content/uploads/2024/09/shutterstock_2509903933.jpg' },
@@ -33,6 +29,10 @@ export default function HomeScreen() {
 
 		const router = useRouter();
 
+		const handleSelection = (option: React.SetStateAction<string>) => {
+				setSelectedTime(option);
+				setModalVisible(false);  // Close modal after selecting
+		};
 		const handleNext = () => {
 				setModalVisible(false);
 				router.navigate('/(map)');

@@ -8,21 +8,21 @@ export default function Activity() {
 						<Text style={styles.title}>Activity</Text>
 						<OrderItem
 								restaurant="Chopsticks"
-								orderDetails="31 Jul - 18:42"
+								orderDetails="01 Nov - 18:42"
 								price="LKR 939.00"
 								onPress={() => { console.log('Reorder Chopsticks'); }}
 						/>
 
 						<OrderItem
 								restaurant="New Lakrasa Caterers"
-								orderDetails="7 Jun - 17:35"
+								orderDetails="03 Nov - 17:35"
 								price="LKR 721.50"
 								onPress={() => { console.log('Reorder New Lakrasa Caterers'); }}
 						/>
 
 						<OrderItem
 								restaurant="290 Madupitiya"
-								orderDetails="8 Mar - 06:15"
+								orderDetails="06 Nov - 010:17"
 								price="LKR 0.00 - Cancelled"
 								onPress={() => { console.log('Rebook 290 Madupitiya'); }}
 						/>
